@@ -1,18 +1,31 @@
+# Specifies the version of the AppSpec file
 version: 0.0
+
+# Defines the target operating system
 os: linux
+
+# Specifies the source files and their destinations
 files:
+  # Copy the main HTML file to the web server's root directory
   - source: /index.html
     destination: /var/www/html/
+
+# Defines the deployment lifecycle event hooks
 hooks:
   BeforeInstall:
+    # Script to install necessary dependencies before deployment
     - location: scripts/install_dependencies
       timeout: 300
       runas: root
+
   ApplicationStop:
+    # Script to stop the running application before new deployment
     - location: scripts/stop_server
       timeout: 300
       runas: root
+
   ApplicationStart:
+    # Script to start the application after new deployment
     - location: scripts/start_server
       timeout: 300
       runas: root

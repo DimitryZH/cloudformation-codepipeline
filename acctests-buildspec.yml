@@ -1,13 +1,20 @@
+# Specify the version of the buildspec
 version: 0.2
 
+# Define the phases of the build process
 phases:
-
+  # Build phase
   build:
     commands:
+      # Get the public IP address of the EC2 instance with the tag "CodePipelineBlog"
       - export IP_ADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=CodePipelineBlog" --query "Reservations[].Instances[].PublicIpAddress" --output text)
-      - "curl --max-time 10 $IP_ADDRESS >> acc_test_output.txt" # test the homepage
+      # Test the homepage by curling the IP address and save the output
+      - "curl --max-time 10 $IP_ADDRESS >> acc_test_output.txt"
+      # Display the contents of the output file
       - "cat acc_test_output.txt"
 
+# Specify the artifacts to be generated
 artifacts:
   files:
-    - 'acc_test_output.txt'
+    # Include the acceptance test output file
+    - "acc_test_output.txt"
