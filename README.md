@@ -12,8 +12,7 @@ This project demonstrates the implementation of a continuous integration and con
 - **Scalability**: Easy to replicate or scale the infrastructure as needed.
 
 ## Project Architecture
-
-![AWS CodePipeline Infrastructure with CloudFormation](aws_codepipeline_infrastructure_with_cloudformation.png)
+![aws_codepipeline_infrastructure_with_cloudformation](https://github.com/user-attachments/assets/9c843e22-4ff4-4c1d-a7a5-6dee383866fa)
 
 ## Project Files
 
